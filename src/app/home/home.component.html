@@ -1,0 +1,105 @@
+<header>
+  <div class="logo">
+  </div>
+
+  <div class="right">
+    <!-- <img class="notifications" src="../../assets/images/notification.svg" alt=""> -->
+    <div class="profile-info">
+      <button (click)="logOut()" class="d-inline-flex btn text-danger">
+        <h6>Çıkış Yap</h6>
+        <i class="fa fa-sign-out-alt pt-1 ml-1"></i>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!--  -->
+<!--  -->
+
+<section class="col-12 h-100 mt-4 animated fadeIn" id="home">
+  <div id="user-profile" class="col-lg-4 offset-lg-4 my-4">
+    <div class="row">
+      <img class="img-thumbnail" src="../../assets/images/register-image.png">
+    </div>
+
+    <div class="text-center mb-5">
+      <h5>Kalan Bakiyeniz: <span class="text-success"> ₺26.70</span></h5>
+    </div>
+  </div>
+
+  <div class="col-lg-6 offset-lg-3">
+
+    <div class="row py-1">
+      <div class="col-12 contact-item">
+        <div class="contact-name-container">
+          <h3>Ahmet Yılmaz</h3>
+        </div>
+        <div class="operations-container">
+          <button class="btn btn-danger m-2 p-3" (click)="post(true)" [routerLink]="['/voice-call/Ahmet Yılmaz']">
+            <i class="fa fa-phone"></i> Sesli Görüşme
+          </button>
+          <button class="btn btn-success m-2 p-3" (click)="post()" [routerLink]="['/video-call/Ahmet Yılmaz']">
+            <i class="fa fa-video"></i> Görüntülü Görüşme
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <hr>
+
+    <div class="row py-1">
+      <div class="col-12 contact-item">
+        <div class="contact-name-container">
+          <h3>Mehmet Yılmaz</h3>
+        </div>
+        <div class="operations-container">
+          <button class="btn btn-danger m-2 p-3" (click)="post()" [routerLink]="['/video-call/Mehmet Yılmaz']">
+            <i class="fa fa-phone"></i> Sesli Görüşme
+          </button>
+          <button class="btn btn-success m-2 p-3" (click)="post()" [routerLink]="['/video-call/Mehmet Yılmaz']">
+            <i class="fa fa-video"></i> Görüntülü Görüşme
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <hr>
+
+    <div class="row py-1">
+      <div class="col-12 contact-item">
+        <div class="contact-name-container">
+          <h3>Fatma Gül</h3>
+        </div>
+        <div class="operations-container">
+          <button class="btn btn-danger m-2 p-3" (click)="post()" [routerLink]="['/video-call/Fatma Gül']">
+            <i class="fa fa-phone"></i> Sesli Görüşme
+          </button>
+          <button class="btn btn-success m-2 p-3" (click)="post()" [routerLink]="['/video-call/Fatma Gül']">
+            <i class="fa fa-video"></i> Görüntülü Görüşme
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <hr>
+
+    <!-- <div class="row col">
+      <button (click)="post()" [routerLink]="['/calling/Ahmet Yılmaz']" class="btn btn-lg btn-labeled btn-outline-dark w-100">
+        <span class="btn-label"><i class="fa fa-video"></i></span>
+        <span class="btn-text">Ahmet Yılmaz</span>
+      </button>
+    </div>
+    <div class="row py-1">
+      <button (click)="post()" [routerLink]="['/calling/Mehmet Yılmaz']" class="btn btn-lg btn-labeled btn-outline-dark w-100">
+        <span class="btn-label"><i class="fa fa-video"></i></span>
+        <span class="btn-text">Mehmet Yılmaz</span>
+      </button>
+    </div>
+    <div class="row py-1">
+      <button (click)="post()" [routerLink]="['/calling/Fatma Gül']" class="btn btn-lg btn-labeled btn-outline-dark w-100">
+        <span class="btn-label"><i class="fa fa-video"></i></span>
+        <span class="btn-text">Fatma Gül</span>
+      </button>
+    </div> -->
+  </div>
+</section>

@@ -1,0 +1,18 @@
+<simple-notifications [options]="notificationOptions"></simple-notifications>
+
+<section id="meeting" class="animated fadeIn">
+  <div class="timer-container">
+    <div>
+      <h2>{{remainingTime | minuteSeconds}}</h2>
+      <span class="badge badge-success">Canlı</span>
+    </div>
+  </div>
+  <div class="video-chat-wrapper" #videoChatWrapper>
+  </div>
+
+  <div id="toolbar" class="col-12">
+    <button id="hangup-btn" (click)="leave()" class="btn btn-danger">
+      <i class="fa fa-phone-slash fa-2x"></i>
+    </button>
+  </div>
+</section>

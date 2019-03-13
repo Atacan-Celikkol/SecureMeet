@@ -1,0 +1,261 @@
+@white : #fff;
+@light-gray : #e3e3e3;
+@dark: #171717;
+
+
+.btn-lg {
+  border-radius: 25px !important;
+  height: 60px;
+  width: 280px;
+}
+
+.btn-label {
+  position: relative;
+  float: left;
+  display: inline-block;
+  padding: 6px 12px;
+  border-radius: 3px 0 0 3px;
+}
+
+.btn-labeled {
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+.btn-text {
+  position: relative;
+  top: 5px;
+}
+
+.btn {
+  margin-bottom: 10px;
+}
+
+
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+  color: @dark;
+}
+
+header {
+  height: 75px;
+  width: 100%;
+  background: @white;
+  border-bottom: 2px groove @light-gray;
+  display: inline-flex;
+  box-shadow: 0 0 5px @light-gray;
+  position: sticky;
+  top: 0;
+  z-index: 99;
+
+  div {
+    height: 100%;
+    display: inline-flex;
+  }
+
+  .logo {
+    width: 100px;
+
+    margin-left: 20px;
+    font-family: fantasy;
+
+    h1 {
+      margin: auto;
+      color: @dark;
+    }
+  }
+
+  .center {
+    width: 100%;
+  }
+
+  .right {
+    float: right;
+    margin-right: 40px;
+
+    img.notifications {
+      width: 20px;
+      height: 35px;
+      box-sizing: content-box;
+      margin: auto;
+      border-right: 2px solid @light-gray;
+      padding-right: 17px;
+      cursor: pointer;
+    }
+
+    img.profile-picture {
+      width: 35px;
+      height: 35px;
+      border-radius: 50%;
+      margin: auto;
+    }
+
+    div {
+      display: inline-block;
+      width: 120px;
+      margin: auto;
+      height: auto;
+      margin-left: 7px;
+
+      div {
+        width: 90px;
+      }
+
+      img.dropdown-btn {
+        cursor: pointer;
+      }
+
+      div.dropdown-menu {
+        display: none;
+      }
+
+      .dropdown-container:hover>.dropdown-menu {
+        display: block;
+      }
+
+      .dropdown-menu {
+        position: absolute;
+        background: @white;
+        width: 151px;
+        right: 33px;
+        top: auto;
+        left: auto;
+
+        border-radius: 2px;
+        border: 2px solid @light-gray;
+
+        div {
+          height: 35px;
+          width: 100%;
+          margin: 0;
+          display: inline-flex;
+          transition: 250ms;
+          cursor: pointer;
+
+          span {
+            margin: auto 0;
+            margin-left: 5px;
+          }
+        }
+
+        div:hover {
+          background: @light-gray;
+        }
+      }
+
+
+
+
+      button {
+        margin: auto;
+        width: max-content;
+
+        i {
+          font-size: 1.6rem;
+          padding-top: 6px !important;
+        }
+
+        h6 {
+          font-size: 1.6rem;
+          margin: 0;
+        }
+      }
+    }
+  }
+}
+
+
+
+section#home {
+
+  #user-profile {
+    img.img-thumbnail {
+      height: 200px;
+      width: 200px;
+      object-fit: cover;
+      border-radius: 50%;
+      margin: auto;
+    }
+  }
+
+  .contact-item {
+    align-self: center;
+    vertical-align: middle;
+    align-items: center;
+    align-content: center;
+
+    .contact-name-container {
+      float: left;
+      margin-top: 14pt;
+
+      h3 {
+        margin: 0;
+      }
+    }
+
+    .operations-container {
+      float: right;
+
+      button {}
+    }
+  }
+}
+
+
+
+section#calling {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+
+  #user-profile {
+    img.img-thumbnail {
+      height: 290px;
+      width: 290px;
+      object-fit: cover;
+      border-radius: 50%;
+      margin: auto;
+    }
+  }
+}
+
+section#meeting {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  overflow: hidden;
+
+  .video-chat-wrapper {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    float: left;
+    z-index: 9;
+  }
+
+  .timer-container {
+    position: fixed;
+    background: #17171710;
+    top: 25px;
+    left: 21px;
+    z-index: 99;
+    height: 100px;
+    width: 100px;
+    text-align: center;
+    display: inline-flex;
+
+    div {
+      margin: auto;
+      display: inline-grid;
+
+      h2 {
+        color: @white;
+        text-shadow: 0 0 2px @light-gray;
+      }
+    }
+
+  }
+}

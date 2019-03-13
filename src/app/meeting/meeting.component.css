@@ -1,0 +1,13 @@
+#toolbar {
+   z-index: 9;
+   position: fixed;
+   bottom: 10px;
+   display: flex;
+}
+
+#hangup-btn {
+   margin: auto;
+   border-radius: 50%;
+   height: 80px;
+   width: 80px;
+}
