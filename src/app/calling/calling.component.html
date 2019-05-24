@@ -1,17 +1,22 @@
-<header>
+<!-- <header>
   <div class="logo">
     <h1>
       Logo
     </h1>
   </div>
-</header>
+</header> -->
 
 <section id="calling" class="animated fadeIn">
   <div id="user-profile" class="col-lg-4 offset-lg-4 my-4">
     <div class="row">
-      <img *ngIf="userName==='Fatma Gül'; else male" class="img-thumbnail" src="../../assets/images/woman1.png">
-      <ng-template #male>
-        <img class="img-thumbnail" src="../../assets/images/male1.png">
+      <ng-container>
+        <img *ngIf="userName==='Doktor'; else defaultCall" class="img-thumbnail" src="../../assets/images/doctor.jpg">
+      </ng-container>
+      <ng-template #defaultCall>
+        <img *ngIf="userName==='Fatma Gül'; else male" class="img-thumbnail" src="../../assets/images/woman1.png">
+        <ng-template #male>
+          <img class="img-thumbnail" src="../../assets/images/male1.png">
+        </ng-template>
       </ng-template>
     </div>
     <div class="text-center card-body">
