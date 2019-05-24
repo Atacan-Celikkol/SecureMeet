@@ -1,5 +1,5 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute, Router, NavigationExtras } from '@angular/router';
 import { SignalRService } from '../../services/signalr.service';
 import { NotificationsService } from 'angular2-notifications';
 import { DataService } from '../../services/base.service';
@@ -12,6 +12,7 @@ import { DataService } from '../../services/base.service';
 export class CallingComponent implements OnInit, OnDestroy {
 
   userName;
+  meetingType;
   signalRSubscription: any;
   routingUrl: string;
 
@@ -29,6 +30,7 @@ export class CallingComponent implements OnInit, OnDestroy {
   ) {
     activatedRoute.url.subscribe(x => {
       this.routingUrl = `${x[0].path}/${x[1].path}/meeting`;
+      this.meetingType = x[0].path;
     });
     activatedRoute.params.subscribe(x => {
       this.userName = x.id;
@@ -68,6 +70,19 @@ export class CallingComponent implements OnInit, OnDestroy {
   }
 
   post() {
-    this.dataService.post('common/innova-stop-push', null).subscribe(() => this.router.navigate(['home']));
+    this.dataService.post('common/innova-stop-push', null).subscribe(() => {
+      if (this.userName === 'Doktor') {
+        this.router.navigate(['home'], { queryParams: { type: 2 } });
+        return;
+      }
+      if (this.meetingType === 'video-call') {
+        this.router.navigate(['home'], { queryParams: { type: 1 } });
+        return;
+      }
+      if (this.meetingType === 'voice-call') {
+        this.router.navigate(['home'], { queryParams: { type: 0 } });
+        return;
+      }
+    });
   }
 }

@@ -29,77 +29,68 @@
 
   <div class="col-lg-6 offset-lg-3">
 
-    <div class="row py-1">
-      <div class="col-12 contact-item">
-        <div class="contact-name-container">
-          <h3>Ahmet Yılmaz</h3>
-        </div>
-        <div class="operations-container">
-          <button class="btn btn-danger m-2 p-3" (click)="post(true)" [routerLink]="['/voice-call/Ahmet Yılmaz']">
-            <i class="fa fa-phone"></i> Sesli Görüşme
-          </button>
-          <button class="btn btn-success m-2 p-3" (click)="post()" [routerLink]="['/video-call/Ahmet Yılmaz']">
-            <i class="fa fa-video"></i> Görüntülü Görüşme
-          </button>
+    <ng-container *ngIf="meetingType === meetingTypes[2]; else defaultCall">
+      <button class="btn btn-lg btn-primary col-12" (click)="post()" [routerLink]="['/video-call/Doktor']">
+        <i class="fas fa-user-md"></i>
+        Doktoru Ara
+      </button>
+    </ng-container>
+
+    <ng-template #defaultCall>
+      <div class="row py-1">
+        <div class="col-12 contact-item">
+          <div class="contact-name-container">
+            <h3>Ahmet Yılmaz</h3>
+          </div>
+          <div class="operations-container">
+            <button class="btn btn-danger m-2 p-3" *ngIf="meetingType === meetingTypes[0]" (click)="post(true)" [routerLink]="['/voice-call/Ahmet Yılmaz']">
+              <i class="fa fa-phone"></i> Sesli Görüşme
+            </button>
+            <button class="btn btn-success m-2 p-3" *ngIf="meetingType === meetingTypes[1]" (click)="post()" [routerLink]="['/video-call/Ahmet Yılmaz']">
+              <i class="fa fa-video"></i> Görüntülü Görüşme
+            </button>
+          </div>
         </div>
       </div>
-    </div>
-
-    <hr>
-
-    <div class="row py-1">
-      <div class="col-12 contact-item">
-        <div class="contact-name-container">
-          <h3>Mehmet Yılmaz</h3>
-        </div>
-        <div class="operations-container">
-          <button class="btn btn-danger m-2 p-3" (click)="post()" [routerLink]="['/video-call/Mehmet Yılmaz']">
-            <i class="fa fa-phone"></i> Sesli Görüşme
-          </button>
-          <button class="btn btn-success m-2 p-3" (click)="post()" [routerLink]="['/video-call/Mehmet Yılmaz']">
-            <i class="fa fa-video"></i> Görüntülü Görüşme
-          </button>
-        </div>
-      </div>
-    </div>
-
-    <hr>
-
-    <div class="row py-1">
-      <div class="col-12 contact-item">
-        <div class="contact-name-container">
-          <h3>Fatma Gül</h3>
-        </div>
-        <div class="operations-container">
-          <button class="btn btn-danger m-2 p-3" (click)="post()" [routerLink]="['/video-call/Fatma Gül']">
-            <i class="fa fa-phone"></i> Sesli Görüşme
-          </button>
-          <button class="btn btn-success m-2 p-3" (click)="post()" [routerLink]="['/video-call/Fatma Gül']">
-            <i class="fa fa-video"></i> Görüntülü Görüşme
-          </button>
+  
+      <hr>
+  
+      <div class="row py-1">
+        <div class="col-12 contact-item">
+          <div class="contact-name-container">
+            <h3>Mehmet Yılmaz</h3>
+          </div>
+          <div class="operations-container">
+            <button class="btn btn-danger m-2 p-3" *ngIf="meetingType === meetingTypes[0]" (click)="post(true)" [routerLink]="['/voice-call/Mehmet Yılmaz']">
+              <i class="fa fa-phone"></i> Sesli Görüşme
+            </button>
+            <button class="btn btn-success m-2 p-3" *ngIf="meetingType === meetingTypes[1]" (click)="post()" [routerLink]="['/video-call/Mehmet Yılmaz']">
+              <i class="fa fa-video"></i> Görüntülü Görüşme
+            </button>
+          </div>
         </div>
       </div>
-    </div>
+  
+      <hr>
+  
+      <div class="row py-1">
+        <div class="col-12 contact-item">
+          <div class="contact-name-container">
+            <h3>Fatma Gül</h3>
+          </div>
+          <div class="operations-container">
+            <button class="btn btn-danger m-2 p-3" *ngIf="meetingType === meetingTypes[0]" (click)="post(true)" [routerLink]="['/voice-call/Fatma Gül']">
+              <i class="fa fa-phone"></i> Sesli Görüşme
+            </button>
+            <button class="btn btn-success m-2 p-3" *ngIf="meetingType === meetingTypes[1]" (click)="post()" [routerLink]="['/video-call/Fatma Gül']">
+              <i class="fa fa-video"></i> Görüntülü Görüşme
+            </button>
+          </div>
+        </div>
+      </div>
+  
+      <hr>
+    </ng-template>
 
-    <hr>
-
-    <!-- <div class="row col">
-      <button (click)="post()" [routerLink]="['/calling/Ahmet Yılmaz']" class="btn btn-lg btn-labeled btn-outline-dark w-100">
-        <span class="btn-label"><i class="fa fa-video"></i></span>
-        <span class="btn-text">Ahmet Yılmaz</span>
-      </button>
-    </div>
-    <div class="row py-1">
-      <button (click)="post()" [routerLink]="['/calling/Mehmet Yılmaz']" class="btn btn-lg btn-labeled btn-outline-dark w-100">
-        <span class="btn-label"><i class="fa fa-video"></i></span>
-        <span class="btn-text">Mehmet Yılmaz</span>
-      </button>
-    </div>
-    <div class="row py-1">
-      <button (click)="post()" [routerLink]="['/calling/Fatma Gül']" class="btn btn-lg btn-labeled btn-outline-dark w-100">
-        <span class="btn-label"><i class="fa fa-video"></i></span>
-        <span class="btn-text">Fatma Gül</span>
-      </button>
-    </div> -->
   </div>
 </section>

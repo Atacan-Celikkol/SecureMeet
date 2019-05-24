@@ -13,6 +13,9 @@ declare var $: any;
 })
 export class MeetingComponent implements OnInit, OnDestroy {
 
+  userName;
+  meetingType;
+
   interval;
   remainingTime = 600;
   signalRSubscription: any;
@@ -37,9 +40,13 @@ export class MeetingComponent implements OnInit, OnDestroy {
     protected dataService: DataService<any, any>
   ) {
     activatedRoute.url.subscribe(x => {
-      if (x[0].path === 'voice-call') {
+      this.meetingType = x[0].path;
+      if (this.meetingType === 'voice-call') {
         this.isVoiceCall = true;
       }
+    });
+    activatedRoute.params.subscribe(x => {
+      this.userName = x.id;
     });
     setTimeout(() => {
       const domain = 'meet.jit.si';
@@ -115,8 +122,19 @@ export class MeetingComponent implements OnInit, OnDestroy {
   }
 
   leave() {
-    this.router.navigate(['home']);
     this.post();
+    if (this.userName === 'Doktor') {
+      this.router.navigate(['home'], { queryParams: { type: 2 } });
+      return;
+    }
+    if (this.meetingType === 'video-call') {
+      this.router.navigate(['home'], { queryParams: { type: 1 } });
+      return;
+    }
+    if (this.meetingType === 'voice-call') {
+      this.router.navigate(['home'], { queryParams: { type: 0 } });
+      return;
+    }
   }
 
   countDown() {
