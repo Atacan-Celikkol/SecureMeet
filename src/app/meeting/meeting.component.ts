@@ -17,7 +17,7 @@ export class MeetingComponent implements OnInit, OnDestroy {
   meetingType;
 
   interval;
-  remainingTime = 10;
+  remainingTime = 600;
   signalRSubscription: any;
   isVoiceCall = false;
 
