@@ -60,7 +60,7 @@ export class CallingComponent implements OnInit, OnDestroy {
       }
       if (response === this.status.reject) {
         this._notf.error('Aramanız reddedildi.', null, { 'position': ['top', 'right'] });
-        this.router.navigate(['home']);
+        this.leave();
       }
     });
   }
@@ -71,18 +71,21 @@ export class CallingComponent implements OnInit, OnDestroy {
 
   post() {
     this.dataService.post('common/innova-stop-push', null).subscribe(() => {
-      if (this.userName === 'Doktor') {
-        this.router.navigate(['home'], { queryParams: { type: 2 } });
-        return;
-      }
-      if (this.meetingType === 'video-call') {
-        this.router.navigate(['home'], { queryParams: { type: 1 } });
-        return;
-      }
-      if (this.meetingType === 'voice-call') {
-        this.router.navigate(['home'], { queryParams: { type: 0 } });
-        return;
-      }
+      this.leave();
     });
+  }
+  leave() {
+    if (this.userName === 'Doktor') {
+      this.router.navigate(['home'], { queryParams: { type: 2 } });
+      return;
+    }
+    if (this.meetingType === 'video-call') {
+      this.router.navigate(['home'], { queryParams: { type: 1 } });
+      return;
+    }
+    if (this.meetingType === 'voice-call') {
+      this.router.navigate(['home'], { queryParams: { type: 0 } });
+      return;
+    }
   }
 }

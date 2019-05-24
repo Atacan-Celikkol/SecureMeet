@@ -17,7 +17,7 @@ export class MeetingComponent implements OnInit, OnDestroy {
   meetingType;
 
   interval;
-  remainingTime = 600;
+  remainingTime = 10;
   signalRSubscription: any;
   isVoiceCall = false;
 
@@ -107,13 +107,14 @@ export class MeetingComponent implements OnInit, OnDestroy {
     this.signalRSubscription = this.signalRService.innovaReceived$.subscribe((response: string) => {
       if (response === this.status.stop) {
         this._notf.error('Aramanız sonlandırıldı.', null, { 'position': ['top', 'right'] });
-        this.router.navigate(['home']);
+        this.leave();
       }
     });
   }
 
   post() {
     this.dataService.post('common/innova-stop-push', null).subscribe();
+    this.leave();
   }
 
   ngOnDestroy() {
@@ -122,7 +123,6 @@ export class MeetingComponent implements OnInit, OnDestroy {
   }
 
   leave() {
-    this.post();
     if (this.userName === 'Doktor') {
       this.router.navigate(['home'], { queryParams: { type: 2 } });
       return;
@@ -145,7 +145,7 @@ export class MeetingComponent implements OnInit, OnDestroy {
       }
       if (this.remainingTime <= 0) {
         clearTimeout(this.interval);
-        this.leave();
+        this.post();
       }
     }, 1000);
   }

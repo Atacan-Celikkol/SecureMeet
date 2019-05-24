@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { NotificationsService } from 'angular2-notifications';
 import { DataService } from '../../services/base.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { MeetingTypes } from '../../enums/MeetingTypes';
+import { isNullOrUndefined } from 'util';
 
 @Component({
   selector: 'app-home',
@@ -17,10 +18,15 @@ export class HomeComponent {
   constructor(
     public _notf: NotificationsService,
     protected dataService: DataService<any, any>,
+    router: Router,
     activatedRoute: ActivatedRoute
   ) {
     activatedRoute.queryParams.subscribe(x => {
-      this.meetingType = this.meetingTypes[x['type']];
+      if (isNullOrUndefined(x['type']) || x['type'] > 2 || x['type'] < 0 ) {
+        router.navigate(['home'], { queryParams: { type: 1 } });
+      } else {
+        this.meetingType = this.meetingTypes[x['type']];
+      }
     });
   }
 
