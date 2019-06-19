@@ -152,6 +152,10 @@ section#home .contact-item .contact-name-container h3 {
 section#home .contact-item .operations-container {
   float: right;
 }
+section#home hr {
+  margin-top: 0;
+  margin-bottom: 0;
+}
 section#calling {
   height: 100%;
   width: 100%;
