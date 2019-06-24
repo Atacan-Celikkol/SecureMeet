@@ -113,8 +113,9 @@ export class MeetingComponent implements OnInit, OnDestroy {
   }
 
   post() {
-    this.dataService.post('common/innova-stop-push', null).subscribe();
-    this.leave();
+    this.dataService.post('common/innova-stop-push', null).subscribe(x =>
+      this.leave()
+    );
   }
 
   ngOnDestroy() {
