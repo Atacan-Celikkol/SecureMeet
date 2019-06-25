@@ -182,22 +182,34 @@ section#home {
   }
 
   .contact-item {
-    align-self: center;
     vertical-align: middle;
     align-items: center;
     align-content: center;
+    display: inline-flex;
 
     .contact-name-container {
       float: left;
-      margin-top: 14pt;
+      display: inline-flex;
+      align-items: center;
+      margin: 5px 0 5px 0;
 
       h3 {
         margin: 0;
+      }
+
+      img.img-thumbnail {
+        border-radius: 50%;
+        height: 80px;
+        width: 80px;
+        padding: 1px;
+        margin-right: 10px;
       }
     }
 
     .operations-container {
       float: right;
+      position: absolute;
+      right: 7px;
     }
   }
 
@@ -206,7 +218,6 @@ section#home {
     margin-bottom: 0;
   }
 }
-
 
 
 section#calling {

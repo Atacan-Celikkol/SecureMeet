@@ -137,20 +137,31 @@ section#home #user-profile img.img-thumbnail {
   margin: auto;
 }
 section#home .contact-item {
-  align-self: center;
   vertical-align: middle;
   align-items: center;
   align-content: center;
+  display: inline-flex;
 }
 section#home .contact-item .contact-name-container {
   float: left;
-  margin-top: 14pt;
+  display: inline-flex;
+  align-items: center;
+  margin: 5px 0 5px 0;
 }
 section#home .contact-item .contact-name-container h3 {
   margin: 0;
 }
+section#home .contact-item .contact-name-container img.img-thumbnail {
+  border-radius: 50%;
+  height: 80px;
+  width: 80px;
+  padding: 1px;
+  margin-right: 10px;
+}
 section#home .contact-item .operations-container {
   float: right;
+  position: absolute;
+  right: 7px;
 }
 section#home hr {
   margin-top: 0;

@@ -13,10 +13,9 @@
         <img *ngIf="userName==='Doktor'; else defaultCall" class="img-thumbnail" src="../../assets/images/doctor.jpg">
       </ng-container>
       <ng-template #defaultCall>
-        <img *ngIf="userName==='Fatma Gül'; else male" class="img-thumbnail" src="../../assets/images/woman1.png">
-        <ng-template #male>
-          <img class="img-thumbnail" src="../../assets/images/male1.png">
-        </ng-template>
+        <img *ngIf="userName==='Ahmet Yılmaz'" class="img-thumbnail" src="../../assets/images/male1.png">
+        <img *ngIf="userName==='Mehmet Yılmaz'" class="img-thumbnail" src="../../assets/images/male3.png">
+        <img *ngIf="userName==='Fatma Gül'" class="img-thumbnail" src="../../assets/images/female2.png">
       </ng-template>
     </div>
     <div class="text-center card-body">
